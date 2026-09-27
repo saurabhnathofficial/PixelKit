@@ -1,5 +1,5 @@
 @import 'bootstrap';
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -10,10 +10,6 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
-
-
-@import "bootstrap/dist/css/bootstrap.min.css";
-
 
 /* =========================================================
    GLOBAL
@@ -1134,3 +1130,142 @@ a {
     }
 
 }
+
+.resize-options {
+    padding: 24px;
+    background: #f8faff;
+    border: 1px solid #e8edf5;
+    border-radius: 16px;
+}
+
+.resize-badge {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #eaf3ff;
+    color: #0969ff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Main container */
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* Navbar */
+    nav {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    nav .container,
+    .navbar-container {
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* Hero section */
+    h1 {
+        font-size: 36px !important;
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: 28px !important;
+    }
+
+    h3 {
+        font-size: 24px !important;
+    }
+
+    /* Hero/content spacing */
+    .hero,
+    .hero-section {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    /* Buttons */
+    .pk-btn,
+    .compress-submit {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Cards */
+    .compress-card,
+    .result-card {
+        padding: 22px !important;
+    }
+
+    /* Dashboard statistics */
+    .result-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .result-arrow {
+        transform: rotate(90deg);
+    }
+
+    /* Dashboard table */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    /* Forms */
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    h1 {
+        font-size: 30px !important;
+    }
+
+    h2 {
+        font-size: 25px !important;
+    }
+
+    .pk-mini-label {
+        font-size: 11px;
+    }
+
+    .compress-card,
+    .result-card {
+        padding: 18px !important;
+    }
+
+    .pk-btn {
+        width: 100%;
+    }
+}
+
+ 

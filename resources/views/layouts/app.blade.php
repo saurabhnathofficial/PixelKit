@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>@yield('title', 'PixelKit - Image Optimizer')</title>
-
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @stack('styles')
@@ -18,66 +18,151 @@
     <nav class="navbar navbar-expand-lg bg-white border-bottom py-3">
         <div class="container">
 
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="{{ url('/') }}">
+            {{-- Logo --}}
+            <a
+                class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+                href="{{ url('/') }}"
+            >
                 <span class="pk-brand-icon">◆</span>
 
                 <span>
                     PixelKit
-                    <small class="d-block text-muted" style="font-size: 8px; margin-top: -4px;">
+                    <small
+                        class="d-block text-muted"
+                        style="font-size: 8px; margin-top: -4px;"
+                    >
                         By Saurabh
                     </small>
                 </span>
             </a>
 
+
+            {{-- Mobile Menu Button --}}
             <button
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar">
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="mainNavbar">
 
+            {{-- Navbar Content --}}
+            <div
+                class="collapse navbar-collapse"
+                id="mainNavbar"
+            >
+
+                {{-- Navigation Links --}}
                 <ul class="navbar-nav mx-auto gap-lg-3">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">
+                        <a
+                            class="nav-link"
+                            href="{{ url('/') }}"
+                        >
                             Home
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a
+                            class="nav-link"
+                            href="{{ route('compress.index') }}"
+                        >
                             Compress
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a
+                            class="nav-link"
+                            href="{{ route('resize.index') }}"
+                        >
                             Resize
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a
+                            class="nav-link"
+                            href="{{ route('convert.index') }}"
+                        >
                             Convert
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            About
-                        </a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="{{ route('dashboard') }}"
+                            >
+                                Dashboard
+                            </a>
+                        </li>
+                    @endauth
 
                 </ul>
 
-                <a href="#" class="btn btn-primary px-4">
-                    Get Started
-                </a>
+
+                {{-- Authentication --}}
+                @auth
+
+                    <div class="d-flex align-items-center gap-3">
+
+                        <span class="text-muted small">
+                            Hi,
+                            <strong>
+                                {{ Auth::user()->name }}
+                            </strong>
+                        </span>
+
+                        <form
+                            action="{{ route('logout') }}"
+                            method="POST"
+                            class="m-0"
+                        >
+                            @csrf
+
+                            <button
+                                type="submit"
+                                class="btn btn-outline-danger px-3"
+                            >
+                                Logout
+                            </button>
+                        </form>
+
+                    </div>
+
+                @else
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <a
+                            href="{{ route('login') }}"
+                            class="btn btn-outline-primary px-4 py-2 auth-nav-btn"
+                        >
+                            Login
+                        </a>
+
+                        <a
+                            href="{{ route('register') }}"
+                            class="btn btn-primary px-4 auth-nav-btn"
+                        >
+                            Get Started
+                        </a>
+
+                    </div>
+
+                @endauth
 
             </div>
+
         </div>
     </nav>
 
@@ -96,6 +181,7 @@
             <div class="row">
 
                 <div class="col-md-6">
+
                     <h5 class="fw-bold">
                         <span class="text-primary">◆</span>
                         PixelKit
@@ -105,16 +191,21 @@
                         Fast, simple and reliable image optimization
                         for the modern web.
                     </p>
+
                 </div>
 
+
                 <div class="col-md-6 text-md-end mt-4 mt-md-0">
+
                     <p class="text-muted mb-1">
                         Compress · Resize · Convert
                     </p>
 
                     <small class="text-muted">
-                        © {{ date('Y') }} PixelKit. All rights reserved.
+                        © {{ date('Y') }} PixelKit.
+                        All rights reserved.
                     </small>
+
                 </div>
 
             </div>
@@ -122,6 +213,7 @@
         </div>
 
     </footer>
+
 
     @stack('scripts')
 
