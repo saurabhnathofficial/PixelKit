@@ -1,59 +1,195 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🖼️ PixelKit — Image Optimizer
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Fast, simple and reliable image optimization for the modern web.
 
-## About Laravel
+## 📌 About PixelKit
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**PixelKit** is a full-stack image optimization web application built with Laravel. It allows users to **compress, resize, and convert images** through a simple and responsive interface.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The project was built to implement real-world backend concepts such as authentication, authorization, file handling, image processing, database management, and admin functionality.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### ✨ Key Features
 
-## Learning Laravel
+* 🗜️ Image compression
+* 📐 Image resizing
+* 🔄 Image format conversion
+* 🔐 User authentication
+* 👤 User dashboard
+* 👨‍💼 Admin dashboard
+* 📊 Image optimization history
+* 🧹 Temporary image processing
+* 📱 Responsive UI
+* 🚀 Production deployment
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Tech Stack
 
-## Laravel Sponsors
+```text
+PHP
+Laravel 12
+MySQL
+Blade
+Bootstrap
+JavaScript
+Vite
+Image Processing
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🔄 How It Works
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```text
+Upload Image
+      ↓
+Validate Image
+      ↓
+Process Image
+      ↓
+Compress / Resize / Convert
+      ↓
+Save Optimization Details
+      ↓
+Download Optimized Image
+      ↓
+Temporary File Cleanup
+```
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🏗️ Architecture
 
-## Code of Conduct
+PixelKit follows Laravel's MVC architecture with a dedicated image optimization service.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```text
+User
+ ↓
+Routes
+ ↓
+Controller
+ ↓
+Image Optimization Service
+ ↓
+Image Processing
+ ↓
+MySQL + Temporary Storage
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🔐 Authentication & Authorization
 
-## License
+PixelKit supports separate user and admin functionality.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Users can:**
+
+* Register and login
+* Process images
+* Download optimized images
+* View optimization history
+
+**Admins can:**
+
+* Access the admin dashboard
+* Monitor application activity
+* Manage administrative functionality
+
+---
+
+## 🚀 Installation
+
+### Clone the project
+
+```bash
+git clone https://github.com/YOUR_USERNAME/pixelkit.git
+cd pixelkit
+```
+
+### Install dependencies
+
+```bash
+composer install
+npm install
+```
+
+### Configure environment
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Configure your MySQL database in `.env`.
+
+### Run migrations
+
+```bash
+php artisan migrate
+```
+
+### Build frontend
+
+```bash
+npm run build
+```
+
+### Start the application
+
+```bash
+php artisan serve
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## 👨‍💻 Developer
+
+**Saurabh Nath**
+
+PixelKit is an independently developed project built and maintained by me.
+
+### Technologies & Focus
+
+```text
+PHP
+Laravel
+MySQL
+JavaScript
+Bootstrap
+Vite
+Image Processing
+Backend Development
+```
+
+---
+
+## 📌 Project Status
+
+PixelKit is an actively developed personal project.
+
+The current version includes:
+
+* Image compression
+* Image resizing
+* Image conversion
+* User authentication
+* User dashboard
+* Admin dashboard
+* Optimization history
+* Temporary image processing
+* Responsive UI
+* Production deployment support
+
+---
+
+## 🔒 Ownership
+
+© 2026 Saurabh Nath. All rights reserved.
+
+PixelKit is a personal project. The source code is not licensed for redistribution, resale, or commercial reuse without permission from the developer.
